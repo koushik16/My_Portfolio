@@ -186,13 +186,42 @@ hr {
   margin:0 0 20px;
 }
 
+/* footer { */
+  /* width:270px; */
+  /* float:left; */
+  /* position:fixed; */
+  /* bottom:50px; */
+  /* -webkit-font-smoothing:subpixel-antialiased;} */
+
+  /* footer { */
+  /* text-align: left; */
+  /* margin-top: 20px; Adjust as needed for spacing } */
+
+
+footer p {
+  margin: 2px 0; /* Reduces the vertical space between lines */
+  padding: 0;    /* Removes any padding */
+  line-height: 1.2; /* Adjust line height for tighter spacing */
+} */
+
 footer {
-  width:270px;
-  float:left;
-  position:fixed;
-  bottom:50px;
-  -webkit-font-smoothing:subpixel-antialiased;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* or adjust to the desired width if not full */
+  text-align: center;
+  background-color: #f8f8f8; /* Optional: background color for footer */
+  padding: 5px 0; /* Minimal padding for appearance */
+  font-size: 0.9em; /* Optional: reduce font size if needed */
 }
+
+footer p {
+  margin: 2px 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+
 
 @media print, screen and (max-width: 960px) {
 
@@ -269,4 +298,52 @@ footer {
   }
 }
 
+article h3 {
+  margin-bottom: 6px; /* Reduces space below each project title */
+}
 
+article p {
+  margin: 3px 0; /* Reduces space between paragraphs within each project */
+}
+
+.github-link {
+  margin-top: 6px; /* Adjust spacing above the GitHub link */
+}
+/* Simple Separation for Quantum and ML Sections */
+h2.section-title {
+  font-weight: bold;
+  font-size: 1.6em; /* Slightly larger font */
+  margin-top: 30px; /* Adds space above each section for separation */
+  color: #333;
+}
+article {
+  margin-bottom: 20px; /* Adds space between each project */
+}
+
+
+
+/* Ensure the left sidebar takes full height */
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes footer to the bottom */
+  height: 100vh; /* Full viewport height */
+  padding-left: 10px; /* Optional: padding for spacing on left side */
+  text-align: left;
+}
+
+/* Optional styling for the footer content */
+.footer-content {
+  margin-top: auto; /* Pushes the footer content to the bottom */
+  padding-bottom: 10px; /* Space at bottom of the page */
+}
+
+
+#publications p {
+  margin: 8px 0; /* Adjusts spacing between each publication */
+  line-height: 1.4; /* Reduces line height within each publication */
+}
+
+#publications h2 {
+  margin-bottom: 15px; /* Controls spacing after the title */
+}
