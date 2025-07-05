@@ -62,67 +62,85 @@
         </div>
       </section>
       
-      <section id="skills" class="skills">
+     <section id="skills" class="skills">
   <div class="container">
-    <h2>Technical Stack Overview</h2>
+    <h2>My Engineering Toolkit</h2>
+    <p>
+      I specialize in building scalable AI systems, dissecting models under the hood, and translating complex data into structured, actionable intelligence. My toolkit spans the full ML lifecycle — from experimentation and fine-tuning to visualization and deployment — with an added edge in quantum-NLP integration.
+    </p>
 
     <div class="skills-grid">
+
+      <!-- 1. Core Machine Learning -->
       <div class="skill-card">
-        <h3>🧠 AI / NLP</h3>
+        <h3>🧠 Machine Learning & Modeling</h3>
         <ul>
-          <li>LLMs (LLaMA, GPT, Mistral)</li>
-          <li>Transformers, LoRA, RAG</li>
-          <li>Embedding Models, Semantic Drift</li>
-          <li>NER, RDF, Knowledge Graphs</li>
+          <li>Supervised / unsupervised learning, cross-validation, feature engineering</li>
+          <li>Tree-based models (XGBoost, LightGBM), linear models (ridge, lasso), SVMs</li>
+          <li>Multimodal models, tabular + time-series prediction, outlier detection</li>
+          <li>Metrics: AUC, RMSE, F1, precision@k, silhouette score</li>
         </ul>
       </div>
 
+      <!-- 2. AI Systems and LLMs -->
       <div class="skill-card">
-        <h3>📦 ML Frameworks</h3>
+        <h3>⚙️ LLMs & AI Systems</h3>
         <ul>
-          <li>PyTorch (DDP, Inductor), JAX</li>
-          <li>TensorFlow, Huggingface</li>
-          <li>LangGenius, TorchInductor</li>
-          <li>Unity (Game AI), ParaView</li>
+          <li>LoRA, PEFT, instruction-tuned models (LLaMA, Mistral, T5, BERT)</li>
+          <li>RAG pipelines, long-context prompting, few-shot chaining</li>
+          <li>Agentic workflows (LangChain, Dify, LangGraph)</li>
+          <li>LLM evaluation: BERTScore, BLEU, TruthfulQA, MMLU, HELM</li>
         </ul>
       </div>
 
+      <!-- 3. Data Science / Analytics -->
       <div class="skill-card">
-        <h3>⚛ Quantum</h3>
+        <h3>📊 Data Science & Analysis</h3>
         <ul>
-          <li>Qiskit, PennyLane</li>
-          <li>VQCs, Hamiltonians, Encoding</li>
-          <li>Circuit transpilation & optimization</li>
-          <li>Quantum NLP & QML</li>
+          <li>EDA, correlation analysis, feature importance, distribution testing</li>
+          <li>Hypothesis testing (t-test, chi-square), ANOVA, A/B testing</li>
+          <li>Regression models, time-series forecasting (ARIMA, Prophet)</li>
+          <li>R, Python (Pandas, NumPy), SQL, Power BI, Excel modeling</li>
         </ul>
       </div>
 
+      <!-- 4. MLOps & Infrastructure -->
       <div class="skill-card">
-        <h3>🔧 Infra & MLOps</h3>
+        <h3>🚀 MLOps, Deployment & Infrastructure</h3>
         <ul>
-          <li>GCP (Functions, Compute)</li>
-          <li>AWS Sagemaker, BigRed200</li>
-          <li>MLflow, WandB, GitHub Actions</li>
-          <li>Docker, CI/CD, Cluster Orchestration</li>
+          <li>FastAPI, Docker, GitHub Actions, CI/CD pipelines</li>
+          <li>GCP (Vertex AI, Functions, Compute, Storage), AWS Sagemaker</li>
+          <li>Tracking & monitoring with MLflow, Weights & Biases, torch.profiler</li>
+          <li>Quantization, ONNX export, Triton inference server</li>
         </ul>
       </div>
 
+      <!-- 5. Visualization & Interfaces -->
       <div class="skill-card">
-        <h3>🎨 Visualization & UI</h3>
+        <h3>🎮 Visualization & Interfaces</h3>
         <ul>
-          <li>React, TailwindCSS, TypeScript</li>
-          <li>FastAPI (backend agents)</li>
-          <li>Unity, ParaView, Power BI</li>
+          <li>Seaborn, Matplotlib, Plotly, Power BI</li>
+          <li>Scientific visualization: ParaView, Unity (game logic, AI agents)</li>
+          <li>Frontend: React, TailwindCSS, TypeScript (basic)</li>
+          <li>Dashboard design for ML explainability & result interpretation</li>
         </ul>
       </div>
+
+      <!-- 6. Quantum AI / NLP -->
+      <div class="skill-card">
+        <h3>⚛ Quantum NLP & Experimental Research</h3>
+        <ul>
+          <li>Qiskit, PennyLane, IBMQ systems, circuit transpilation</li>
+          <li>Amplitude encoding, VQC, Hamiltonian optimization</li>
+          <li>Quantum representation of language: token-to-state encodings</li>
+          <li>Tensor projection, PCA/t-SNE of quantum embeddings</li>
+        </ul>
+      </div>
+
     </div>
-
-    <!-- Radar Chart -->
-    <h3 style="margin-top: 40px;">Skill Map</h3>
-    <p>This chart shows how my skills balance across domains.</p>
-    <canvas id="skillsRadar" width="400" height="400"></canvas>
   </div>
 </section>
+
 
       <section id="research" class="research">
         <div class="container">
