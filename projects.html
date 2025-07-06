@@ -27,101 +27,141 @@
       <p><a href="index.html">&larr; Back to Home</a></p>
     </header>
 
-    <section id="detailed-projects">
-      <!-- <h2>Projects</h2> -->
+<section id="detailed-projects">
 
+  <!-- MACHINE LEARNING -->
+  <h2 class="section-title">Machine Learning Projects</h2>
 
-      <!-- Machine Learning Projects -->
-      <h2 class="section-title">Machine Learning Projects</h2>
+  <article>
+    <h3>Graph RAG for Medical Document Parsing</h3>
+    <p><em>Summary:</em> Developed a Graph-RAG pipeline combining LoRA-tuned LLaMA models with knowledge graphs for structured biomedical document QA.</p>
+    <p><em>Technical Focus:</em> Extracted RDF triples using SpaCy + Stanza; evaluated coherence using semantic benchmarks and triplet overlap.</p>
+    <div>
+      <span class="tag">Python</span> <span class="tag">RAG</span> <span class="tag">LLMs</span> <span class="tag">UMLS</span>
+    </div>
+    <p><a href="https://github.com/koushik16/NER-analysis-and-Knowledge-Graphs-for-Medical-data" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <!-- <article>
-        <h3>NER Analysis and Knowledge Graphs for Medical Data</h3>
-        <p><em>Summary:</em> Conducted Named Entity Recognition (NER) analysis and developed knowledge graphs for medical data to enhance information extraction and representation in healthcare.</p>
-        <p><em>Technical Focus:</em> Built knowledge graphs from extracted entities, leveraging NER techniques to structure unstructured data for better data linkage and insights in medical applications.</p>
-        <p><strong>Technologies:</strong> Python, NLP, Knowledge Graphs</p>
-        <p><a href="https://github.com/koushik16/NER-analysis-and-Knowledge-Graphs-for-Medical-data" target="_blank">View on GitHub</a></p>
-      </article> -->
+  <article>
+    <h3>Cancer Drug Synergy Prediction</h3>
+    <p><em>Summary:</em> Built a GNN-based model to predict synergy scores for cancer drug pairs using multimodal biological features across 60+ cell lines.</p>
+    <p><em>Technical Focus:</em> Used gene expression and molecular fingerprint data with GCNNs; achieved 90.81 AUC on test benchmarks.</p>
+    <div>
+      <span class="tag">PyTorch</span> <span class="tag">GNN</span> <span class="tag">Bioinformatics</span>
+    </div>
+  </article>
 
-      <article>
-        <h3>Graph RAG for Medical Document Parsing</h3>
-        <p><em>Summary:</em> Developed Graph RAG pipelines integrating LLMs with knowledge graphs for structured information extraction from medical literature.</p>
-        <p><em>Technical Focus:</em> Used SpaCy, Stanza, and LoRA-tuned LLaMA models for RDF graph construction; evaluated extractions with semantic coherence and triplet accuracy.</p>
-        <p><strong>Technologies:</strong> Python, NLP, Knowledge Graphs, RAG, LLaMA</p>
-        <p><a href="https://github.com/koushik16/NER-analysis-and-Knowledge-Graphs-for-Medical-data" target="_blank">View on GitHub</a></p>
-      </article>
-  
-      <article>
-        <h3>Cancer Drug Synergy Prediction (Bioinformatics ML)</h3>
-        <p><em>Summary:</em> Built deep learning models to predict synergy scores for drug pairs using genomic and structural information from 60+ cancer cell lines.</p>
-        <p><em>Technical Focus:</em> Implemented Graph Convolutional Networks (GCNNs) with multimodal inputs (gene expression, fingerprints, target genes); achieved 90.81 AUC.</p>
-        <p><strong>Technologies:</strong> PyTorch, GNNs, Bioinformatics, Drug Discovery</p>
-        <i>Project specifics not open</i>
-      </article>
+  <article>
+    <h3>Fisher's Linear Discriminant from Scratch</h3>
+    <p><em>Summary:</em> Re-implemented FLD for multi-class data to study discriminative dimensionality reduction in feature spaces.</p>
+    <p><em>Technical Focus:</em> Calculated within/between-class scatter matrices and projected data to maximize class separation.</p>
+    <div>
+      <span class="tag">Python</span> <span class="tag">ML Theory</span> <span class="tag">Stats</span>
+    </div>
+    <p><a href="https://github.com/koushik16/Fishers-Linear-Discriminant-Scratch" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <article>
-        <h3>Fisher's Linear Discriminant from Scratch</h3>
-        <p><em>Summary:</em> Implemented Fisher's Linear Discriminant (FLD) from scratch, focusing on maximizing class separation for feature reduction in multi-class data.</p>
-        <p><em>Technical Focus:</em> Created an optimized version of FLD, using custom code to calculate separation metrics and project high-dimensional data into a low-dimensional space with minimal loss of information.</p>
-        <p><strong>Technologies:</strong> Python</p>
-        <p><a href="https://github.com/koushik16/Fishers-Linear-Discriminant-Scratch" target="_blank">View on GitHub</a></p>
-      </article>
+  <article>
+    <h3>GAN-generated Face Detection</h3>
+    <p><em>Summary:</em> Built an ensemble classifier to detect fake GAN-generated faces from Twitter profile images.</p>
+    <p><em>Technical Focus:</em> Used CNN-based transfer learning models with stacking ensemble methods to flag deepfakes.</p>
+    <div>
+      <span class="tag">TensorFlow</span> <span class="tag">CNN</span> <span class="tag">Fake Detection</span>
+    </div>
+    <p><a href="https://github.com/koushik16/gan-face-detection" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <article>
-        <h3>GAN-generated Face Detection</h3>
-        <p><em>Summary:</em> Built a deep learning model to detect GAN-generated faces using a combination of ensemble learning and CNN-based feature extraction.</p>
-        <p><em>Technical Focus:</em> Utilized transfer learning for optimized feature extraction, integrating multiple CNN-based models into an ensemble for high accuracy in detecting synthetic images.</p>
-        <p><strong>Technologies:</strong> TensorFlow, Scikit-learn, Python</p>
-        <p><a href="https://github.com/koushik16/gan-face-detection" target="_blank">View on GitHub</a></p>
-      </article>
+  <article>
+    <h3>Social Media Vaccine Response Analysis</h3>
+    <p><em>Summary:</em> Scraped Twitter data to study COVID-19 vaccine sentiment and topics using NLP tools.</p>
+    <p><em>Technical Focus:</em> Topic modeling, LDA, and sentiment classification across Indian regional language posts.</p>
+    <div>
+      <span class="tag">Python</span> <span class="tag">NLP</span> <span class="tag">Twitter API</span>
+    </div>
+    <p><a href="https://github.com/koushik16/covid-vaccine-social-analysis" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <article>
-        <h3>Social Media Data Analysis on COVID-19 Vaccine Responses</h3>
-        <p><em>Summary:</em> Conducted large-scale sentiment and topic analysis on social media data to examine public responses to COVID-19 vaccines.</p>
-        <p><em>Technical Focus:</em> Scraped social media data to capture public sentiment, using NLP techniques such as topic modeling and sentiment extraction to analyze vaccine-related conversations.</p>
-        <p><strong>Technologies:</strong> Python, NLP, Data Visualization</p>
-        <p><a href="https://github.com/koushik16/covid-vaccine-social-analysis" target="_blank">View on GitHub</a></p>
-      </article>
+  <div style="margin: 40px 0; border-top: 1px solid #ccc;"></div>
 
-      <!-- Divider Line for Section Separation -->
-      <hr style="margin-top: 20px; margin-bottom: 20px;">
+  <!-- QUANTUM -->
+  <h2 class="section-title">Quantum Projects</h2>
 
+  <article>
+    <h3>Quantum Neural Networks</h3>
+    <p><em>Summary:</em> Developed hybrid quantum-classical QNNs for classification and regression using Qiskit’s Aer simulator.</p>
+    <p><em>Technical Focus:</em> Built parametric quantum circuits and optimized cost functions for learning performance.</p>
+    <div>
+      <span class="tag">Qiskit</span> <span class="tag">Quantum ML</span>
+    </div>
+    <p><a href="https://github.com/koushik16/Quantum-Neural-Networks" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <!-- Quantum Projects -->
-      <h2 class="section-title">Quantum Projects</h2>
-      
-      <article>
-        <h3>Quantum Neural Networks</h3>
-        <p><em>Summary:</em> Developed advanced quantum circuits for Quantum Neural Networks (QNNs), applying quantum gates to enhance learning tasks in classification and regression.</p>
-        <p><em>Technical Focus:</em> Leveraged Qiskit to create hybrid quantum-classical models, exploring quantum state manipulations for potential advantages over classical models.</p>
-        <p><strong>Technologies:</strong> Qiskit, Python</p>
-        <p><a href="https://github.com/koushik16/Quantum-Neural-Networks" target="_blank">View on GitHub</a></p>
-      </article>
+  <article>
+    <h3>Regression with Variational Quantum Circuits</h3>
+    <p><em>Summary:</em> Created a regression pipeline using VQCs to map high-dimensional inputs to continuous outputs.</p>
+    <p><em>Technical Focus:</em> Designed ansatz architectures and trained using classical optimizers over circuit parameters.</p>
+    <div>
+      <span class="tag">Quantum Computing</span> <span class="tag">VQC</span> <span class="tag">Python</span>
+    </div>
+    <p><a href="https://github.com/koushik16/Regression-with-Variational-Quantum-Circuits-Higher-Dimension" target="_blank">View on GitHub →</a></p>
+  </article>
 
-      <article>
-        <h3>Regression with Variational Quantum Circuits in Higher Dimensions</h3>
-        <p><em>Summary:</em> Developed a multidimensional regression model using Variational Quantum Circuits (VQC), combining quantum circuits with classical optimization techniques.</p>
-        <p><em>Technical Focus:</em> Applied VQCs to tackle high-dimensional data regression, achieving efficient quantum encoding and data transformation for improved accuracy in complex regression tasks.</p>
-        <p><strong>Technologies:</strong> Qiskit, Quantum Computing, Python</p>
-        <p><a href="https://github.com/koushik16/Regression-with-Variational-Quantum-Circuits-Higher-Dimension" target="_blank">View on GitHub</a></p>
-      </article>
-      <!-- Divider Line for Section Separation -->
+  <div style="margin: 40px 0; border-top: 1px solid #ccc;"></div>
 
-            <!-- Divider Line for Section Separation -->
-            <hr style="margin-top: 20px; margin-bottom: 20px;">
-<!-- Other Projects -->
-<h2 class="section-title">Other Projects</h2>
+  <!-- OTHER -->
+  <h2 class="section-title">Other Projects</h2>
 
-<ul>
-  <li><strong>Traffic Sign Classification:</strong> Developed a CNN model to classify traffic signs with real-time voice-over features for accessibility. [<a href="https://github.com/koushik16/Traffic-Sign-Classification" target="_blank">GitHub</a>]</li>
-  <li><strong>Price Prediction Using Neural Networks:</strong> Built a neural network regression model to predict car prices with high accuracy. [<a href="https://github.com/koushik16/Price_prediction_using_NN" target="_blank">GitHub</a>]</li>
-  <li><strong>Ensemble Methods Exploration:</strong> Implemented AdaBoost and Bagging for various datasets to compare performance across scenarios. [<a href="https://github.com/koushik16/Ensemble-Methods-Exploration" target="_blank">GitHub</a>]</li>
-  <li><strong>Auto Blog Generation:</strong> Created an automated blogging system leveraging NLP techniques to generate topic-driven content. [<a href="https://github.com/koushik16/Auto-Blog" target="_blank">GitHub</a>]</li>
-  <li><strong>Diagnosing Breast Cancer Using Machine Learning:</strong> Developed a model to assist in diagnosing breast cancer, utilizing medical imaging data to improve diagnostic accuracy. [<a href="https://github.com/koushik16/Breast-Cancer-Diagnosis" target="_blank">GitHub</a>]</li>
-  <li><strong>Quantum Machine Learning on Iris Dataset:</strong> Applied quantum-enhanced learning to the Iris dataset, exploring quantum encoding for classical classification tasks. [<a href="https://github.com/koushik16/Quantum-Machine-learning-on-Iris-sample" target="_blank">GitHub</a>]</li>
-  <li><strong>Transpilers and Circuit Knitting - Quantum Challenge 2024:</strong> Developed transpilers and optimized circuit knitting strategies for the Quantum Challenge 2024. [<a href="https://github.com/koushik16/Transpilers-and-Pass-Managers-Quantum-challenege-2024" target="_blank">GitHub</a>]</li>
-</ul>
+  <article>
+    <h3>Traffic Sign Classification</h3>
+    <p>Trained CNN models to classify traffic signs and added real-time voice output for accessibility.</p>
+    <div><span class="tag">CNN</span> <span class="tag">Computer Vision</span></div>
+    <p><a href="https://github.com/koushik16/Traffic-Sign-Classification" target="_blank">GitHub →</a></p>
+  </article>
 
-    </section>
+  <article>
+    <h3>Price Prediction Using Neural Networks</h3>
+    <p>Built a basic MLP regressor to predict used car prices with high accuracy.</p>
+    <div><span class="tag">Regression</span> <span class="tag">Python</span></div>
+    <p><a href="https://github.com/koushik16/Price_prediction_using_NN" target="_blank">GitHub →</a></p>
+  </article>
+
+  <article>
+    <h3>Ensemble Methods Exploration</h3>
+    <p>Compared Bagging and Boosting on structured data sets to visualize overfitting and variance control.</p>
+    <div><span class="tag">AdaBoost</span> <span class="tag">Bagging</span></div>
+    <p><a href="https://github.com/koushik16/Ensemble-Methods-Exploration" target="_blank">GitHub →</a></p>
+  </article>
+
+  <article>
+    <h3>Auto Blog Generation</h3>
+    <p>Created a system that generates blog posts from seed topics using NLP generation tools.</p>
+    <div><span class="tag">TextGen</span> <span class="tag">NLP</span></div>
+    <p><a href="https://github.com/koushik16/Auto-Blog" target="_blank">GitHub →</a></p>
+  </article>
+
+  <article>
+    <h3>Breast Cancer Diagnosis</h3>
+    <p>Trained ML models on medical datasets to classify malignant vs benign tumors.</p>
+    <div><span class="tag">Healthcare</span> <span class="tag">Classification</span></div>
+    <p><a href="https://github.com/koushik16/Breast-Cancer-Diagnosis" target="_blank">GitHub →</a></p>
+  </article>
+
+  <article>
+    <h3>Quantum ML on Iris Dataset</h3>
+    <p>Applied quantum circuit learning to classic Iris dataset for binary classification task.</p>
+    <div><span class="tag">Qiskit</span> <span class="tag">Quantum</span></div>
+    <p><a href="https://github.com/koushik16/Quantum-Machine-learning-on-Iris-sample" target="_blank">GitHub →</a></p>
+  </article>
+
+  <article>
+    <h3>Quantum Challenge 2024: Circuit Knitting</h3>
+    <p>Built transpilers and circuit-cutting techniques for depth-optimized quantum circuit execution.</p>
+    <div><span class="tag">Quantum Challenge</span> <span class="tag">Optimization</span></div>
+    <p><a href="https://github.com/koushik16/Transpilers-and-Pass-Managers-Quantum-challenege-2024" target="_blank">GitHub →</a></p>
+  </article>
+
+</section>
+
   </div>
 </body>
 </html>
