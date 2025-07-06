@@ -298,27 +298,38 @@ footer p {
   }
 }
 
+article {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+article:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
 article h3 {
-  margin-bottom: 6px; /* Reduces space below each project title */
+  margin-bottom: 8px;
+  font-size: 1.15em;
+  color: #222;
 }
 
 article p {
-  margin: 3px 0; /* Reduces space between paragraphs within each project */
+  margin: 6px 0;
+  font-size: 0.95em;
+  color: #444;
+  line-height: 1.5;
 }
 
 .github-link {
-  margin-top: 6px; /* Adjust spacing above the GitHub link */
+  margin-top: 10px;
 }
-/* Simple Separation for Quantum and ML Sections */
-h2.section-title {
-  font-weight: bold;
-  font-size: 1.6em; /* Slightly larger font */
-  margin-top: 30px; /* Adds space above each section for separation */
-  color: #333;
-}
-article {
-  margin-bottom: 20px; /* Adds space between each project */
-}
+
 
 
 
@@ -440,4 +451,34 @@ article {
   font-size: 0.97em;
   color: #333;
   line-height: 1.6;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 3px 8px;
+  font-size: 0.75em;
+  border-radius: 12px;
+  margin: 3px 5px 3px 0;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #d0e2ff;
+}
+
+.project-section {
+  background-color: #f9f9f9;
+  padding: 30px 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.project-intro-banner {
+  background-color: #e9f1ff;
+  border-left: 5px solid #3a86ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }

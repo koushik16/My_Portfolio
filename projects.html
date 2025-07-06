@@ -5,17 +5,69 @@
   <title>Projects | Koushik Reddy Parukola</title>
   <link rel="stylesheet" href="stylesheets/styles.css">
   <style>
-    /* Minimal spacing adjustments for readability */
     article {
-        margin-bottom: 20px; /* Adds space between each project */
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
     }
 
-    /* Section Title Styling */
+    article:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    article h3 {
+      margin-bottom: 8px;
+      font-size: 1.15em;
+      color: #222;
+    }
+
+    article p {
+      margin: 6px 0;
+      font-size: 0.95em;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #e0e0e0;
+      color: #333;
+      padding: 3px 8px;
+      font-size: 0.75em;
+      border-radius: 12px;
+      margin: 3px 5px 3px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .tag:hover {
+      background-color: #d0e2ff;
+    }
+
     h2.section-title {
-        font-weight: bold;
-        font-size: 1.6em; /* Slightly larger font */
-        margin-top: 30px; /* Adds space above each section for separation */
-        color: #333;
+      font-weight: bold;
+      font-size: 1.6em;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .project-section {
+      background-color: #f9f9f9;
+      padding: 30px 25px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .project-intro-banner {
+      background-color: #e9f1ff;
+      border-left: 5px solid #3a86ff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
@@ -27,225 +79,128 @@
       <p><a href="index.html">&larr; Back to Home</a></p>
     </header>
 
-<section id="detailed-projects">
+    <section id="detailed-projects">
+      <div class="project-intro-banner">
+        <h2>Projects</h2>
+        <p>I work across classical ML, NLP, bioinformatics, and quantum AI to solve real-world and research-grade challenges. Here's a snapshot of my applied and experimental work.</p>
+      </div>
 
-  <!-- MACHINE LEARNING -->
-  <h2 class="section-title">Machine Learning Projects</h2>
+      <div class="project-section">
+        <h2 class="section-title">Machine Learning & AI Projects</h2>
 
-  <article>
-  <h3>Mini-CLIP: Vision-Language Alignment</h3>
-  <p><em>Summary:</em> Trained a CLIP-style model on text–image pairs to generate atomic action representations for interactive video simulations.</p>
-  <p><em>Technical Focus:</em> Vision transformer for frame embeddings, autoregressive text-to-action decoding, Unity-based visualization pipeline.</p>
-  <div>
-    <span class="tag">CLIP</span> <span class="tag">Multimodal</span> <span class="tag">Vision</span> <span class="tag">PyTorch</span>
-  </div>
-</article>
+        <article>
+          <h3>Mini-CLIP: Vision-Language Alignment</h3>
+          <p><em>Summary:</em> Trained a CLIP-style model to generate atomic action representations from text for video simulations.</p>
+          <p><em>Technical Focus:</em> Vision transformer, autoregressive decoding, Unity-based visualization.</p>
+          <div><span class="tag">CLIP</span> <span class="tag">Multimodal</span> <span class="tag">Vision</span> <span class="tag">PyTorch</span></div>
+        </article>
 
-<article>
-  <h3>Deep Learning Techniques for Bioinformatics</h3>
-  <p><em>Summary:</em> Implemented CNNs, RNNs, and hybrid architectures to analyze DNA sequences, protein structures, and gene expression datasets.</p>
-  <p><em>Technical Focus:</em> Worked with sequence encodings, secondary structure classification, and biologically meaningful visualization.</p>
-  <div>
-    <span class="tag">Bioinformatics</span> <span class="tag">DL</span> <span class="tag">Genomics</span>
-  </div>
-  <p><a href="https://github.com/koushik16/Deep-Learning-Techniques-for-Bio-Informatics" target="_blank">View on GitHub →</a></p>
-</article>
+        <article>
+          <h3>Graph RAG for Medical Document Parsing</h3>
+          <p><em>Summary:</em> Used LoRA-tuned LLaMA with RDF graphs for structured biomedical QA.</p>
+          <p><em>Technical Focus:</em> SpaCy, UMLS, RDF triple extraction, RAG evaluation.</p>
+          <div><span class="tag">Python</span> <span class="tag">LLMs</span> <span class="tag">RAG</span></div>
+        </article>
 
-<article>
-  <h3>Traffic Sign Classification</h3>
-  <p><em>Summary:</em> Developed a CNN-based classifier for real-time road sign detection with audio feedback for accessibility.</p>
-  <p><em>Technical Focus:</em> Used data augmentation, multi-class cross-entropy loss, and voice-over integration.</p>
-  <div>
-    <span class="tag">CNN</span> <span class="tag">Computer Vision</span>
-  </div>
-  <p><a href="https://github.com/koushik16/Traffic-Sign-Classification" target="_blank">View on GitHub →</a></p>
-</article>
+        <article>
+          <h3>Cancer Drug Synergy Prediction</h3>
+          <p><em>Summary:</em> Deep learning model to predict synergy between cancer drugs using gene + structural features.</p>
+          <p><em>Technical Focus:</em> Graph neural networks, fingerprint data, classification scoring.</p>
+          <div><span class="tag">PyTorch</span> <span class="tag">Bioinformatics</span> <span class="tag">GNN</span></div>
+        </article>
 
-<article>
-  <h3>CrickData: IPL Dashboard</h3>
-  <p><em>Summary:</em> Built a dynamic web dashboard to explore Indian Premier League data (2008–2023) with charts and stats per team/player.</p>
-  <p><em>Technical Focus:</em> Data parsing, stat computation, and interactive filtering in browser-based UI.</p>
-  <div>
-    <span class="tag">HTML</span> <span class="tag">Visualization</span> <span class="tag">Web App</span>
-  </div>
-</article>
+        <article>
+          <h3>GAN-generated Face Detection</h3>
+          <p><em>Summary:</em> Built a deepfake detection system using ensemble models and CNN feature extractors.</p>
+          <p><em>Technical Focus:</em> Transfer learning, face detection, image classification.</p>
+          <div><span class="tag">CNN</span> <span class="tag">Fake Detection</span> <span class="tag">TensorFlow</span></div>
+        </article>
 
-<article>
-  <h3>Analysis on Tweets related to COVID-19 Vaccines in India</h3>
-  <p><em>Summary:</em> Performed topic modeling and sentiment analysis on Twitter vaccine data using LDA and VADER.</p>
-  <p><em>Technical Focus:</em> Scraped tweet threads, applied unsupervised topic extraction and keyword heatmaps.</p>
-  <div>
-    <span class="tag">Jupyter</span> <span class="tag">LDA</span> <span class="tag">Social Media</span>
-  </div>
-</article>
+        <article>
+          <h3>DistilBERT Text Classification</h3>
+          <p><em>Summary:</em> Fine-tuned DistilBERT on YouTube comments to classify sentiment and toxicity.</p>
+          <p><em>Technical Focus:</em> HuggingFace, transfer learning, early stopping.</p>
+          <div><span class="tag">Transformers</span> <span class="tag">DistilBERT</span> <span class="tag">NLP</span></div>
+        </article>
+      </div>
 
-<article>
-  <h3>Naive Bayes on Multi-language Text</h3>
-  <p><em>Summary:</em> Applied Naive Bayes classification across multiple languages for basic intent classification and text tagging.</p>
-  <p><em>Technical Focus:</em> Preprocessing for token separation and multilingual text normalization.</p>
-  <div>
-    <span class="tag">Naive Bayes</span> <span class="tag">NLP</span> <span class="tag">Multilingual</span>
-  </div>
-</article>
+      <div class="project-section">
+        <h2 class="section-title">Bio/NLP/Domain Projects</h2>
 
-<article>
-  <h3>Text Classification with DistilBERT</h3>
-  <p><em>Summary:</em> Fine-tuned DistilBERT on YouTube comment datasets to classify user reactions and filter toxic content.</p>
-  <p><em>Technical Focus:</em> Used HuggingFace Transformers and transfer learning with early stopping for optimal validation.</p>
-  <div>
-    <span class="tag">Transformers</span> <span class="tag">DistilBERT</span> <span class="tag">NLP</span>
-  </div>
-</article>
+        <article>
+          <h3>Drug Ontology & Social Media Pattern Detection</h3>
+          <p><em>Summary:</em> Created a hybrid pipeline using rule-based matching and transformer models for NIDA slang detection on Twitter.</p>
+          <p><em>Technical Focus:</em> Heuristics, transformer finetuning, informal language parsing.</p>
+          <div><span class="tag">NLP</span> <span class="tag">Social Media</span> <span class="tag">Transformers</span></div>
+        </article>
 
-<article>
-  <h3>Ensemble Methods Exploration</h3>
-  <p><em>Summary:</em> Compared performance of Bagging and AdaBoost on classification datasets to understand variance vs. bias tradeoffs.</p>
-  <p><em>Technical Focus:</em> Visualized learning curves and feature importance across weak learners.</p>
-  <div>
-    <span class="tag">AdaBoost</span> <span class="tag">Bagging</span> <span class="tag">Scikit-learn</span>
-  </div>
-</article>
+        <article>
+          <h3>COVID-19 Vaccine Response Analysis</h3>
+          <p><em>Summary:</em> Used LDA and sentiment models on Twitter vaccine response data.</p>
+          <p><em>Technical Focus:</em> Data scraping, topic modeling, visualization.</p>
+          <div><span class="tag">Python</span> <span class="tag">LDA</span> <span class="tag">Twitter API</span></div>
+        </article>
 
-<article>
-  <h3>Decision Trees: Uni- & Multi-variate</h3>
-  <p><em>Summary:</em> Built decision trees from scratch using entropy, Gini, and multivariate splitting for regression and classification tasks.</p>
-  <p><em>Technical Focus:</em> Hand-coded logic to evaluate splitting criteria and construct tree structure from tabular data.</p>
-  <div>
-    <span class="tag">Decision Trees</span> <span class="tag">Scratch Implementation</span>
-  </div>
-</article>
+        <article>
+          <h3>Naive Bayes for Multilingual Text</h3>
+          <p><em>Summary:</em> Classification across multiple languages using token-level Naive Bayes.</p>
+          <p><em>Technical Focus:</em> Preprocessing, normalization, probabilistic modeling.</p>
+          <div><span class="tag">Naive Bayes</span> <span class="tag">Text Classification</span></div>
+        </article>
 
+        <article>
+          <h3>Deep Learning for Bioinformatics</h3>
+          <p><em>Summary:</em> Used CNNs and RNNs to process genomic and protein data for structural classification tasks.</p>
+          <div><span class="tag">Deep Learning</span> <span class="tag">Genomics</span> <span class="tag">CNN</span></div>
+        </article>
+      </div>
 
-  <article>
-    <h3>Graph RAG for Medical Document Parsing</h3>
-    <p><em>Summary:</em> Developed a Graph-RAG pipeline combining LoRA-tuned LLaMA models with knowledge graphs for structured biomedical document QA.</p>
-    <p><em>Technical Focus:</em> Extracted RDF triples using SpaCy + Stanza; evaluated coherence using semantic benchmarks and triplet overlap.</p>
-    <div>
-      <span class="tag">Python</span> <span class="tag">RAG</span> <span class="tag">LLMs</span> <span class="tag">UMLS</span>
-    </div>
-    <p><a href="https://github.com/koushik16/NER-analysis-and-Knowledge-Graphs-for-Medical-data" target="_blank">View on GitHub →</a></p>
-  </article>
+      <div class="project-section">
+        <h2 class="section-title">Quantum Projects</h2>
 
-  <article>
-    <h3>Cancer Drug Synergy Prediction</h3>
-    <p><em>Summary:</em> Built a GNN-based model to predict synergy scores for cancer drug pairs using multimodal biological features across 60+ cell lines.</p>
-    <p><em>Technical Focus:</em> Used gene expression and molecular fingerprint data with GCNNs; achieved 90.81 AUC on test benchmarks.</p>
-    <div>
-      <span class="tag">PyTorch</span> <span class="tag">GNN</span> <span class="tag">Bioinformatics</span>
-    </div>
-  </article>
+        <article>
+          <h3>Variational Quantum Regression</h3>
+          <p><em>Summary:</em> Regression model with VQC to learn high-dimensional transformations.</p>
+          <p><em>Technical Focus:</em> Circuit construction, classical optimizer integration.</p>
+          <div><span class="tag">Qiskit</span> <span class="tag">VQC</span></div>
+        </article>
 
-  <article>
-    <h3>Fisher's Linear Discriminant from Scratch</h3>
-    <p><em>Summary:</em> Re-implemented FLD for multi-class data to study discriminative dimensionality reduction in feature spaces.</p>
-    <p><em>Technical Focus:</em> Calculated within/between-class scatter matrices and projected data to maximize class separation.</p>
-    <div>
-      <span class="tag">Python</span> <span class="tag">ML Theory</span> <span class="tag">Stats</span>
-    </div>
-    <p><a href="https://github.com/koushik16/Fishers-Linear-Discriminant-Scratch" target="_blank">View on GitHub →</a></p>
-  </article>
+        <article>
+          <h3>Quantum Neural Networks</h3>
+          <p><em>Summary:</em> Hybrid model using parameterized quantum circuits for learning simple classification boundaries.</p>
+          <p><em>Technical Focus:</em> IBMQ simulator, measurement encoding, state evolution.</p>
+          <div><span class="tag">QNN</span> <span class="tag">Quantum</span> <span class="tag">Python</span></div>
+        </article>
+      </div>
 
-  <article>
-    <h3>GAN-generated Face Detection</h3>
-    <p><em>Summary:</em> Built an ensemble classifier to detect fake GAN-generated faces from Twitter profile images.</p>
-    <p><em>Technical Focus:</em> Used CNN-based transfer learning models with stacking ensemble methods to flag deepfakes.</p>
-    <div>
-      <span class="tag">TensorFlow</span> <span class="tag">CNN</span> <span class="tag">Fake Detection</span>
-    </div>
-    <p><a href="https://github.com/koushik16/gan-face-detection" target="_blank">View on GitHub →</a></p>
-  </article>
+      <div class="project-section">
+        <h2 class="section-title">Other Projects</h2>
 
-  <article>
-    <h3>Social Media Vaccine Response Analysis</h3>
-    <p><em>Summary:</em> Scraped Twitter data to study COVID-19 vaccine sentiment and topics using NLP tools.</p>
-    <p><em>Technical Focus:</em> Topic modeling, LDA, and sentiment classification across Indian regional language posts.</p>
-    <div>
-      <span class="tag">Python</span> <span class="tag">NLP</span> <span class="tag">Twitter API</span>
-    </div>
-    <p><a href="https://github.com/koushik16/covid-vaccine-social-analysis" target="_blank">View on GitHub →</a></p>
-  </article>
+        <article>
+          <h3>Traffic Sign Classification</h3>
+          <p>Built a CNN classifier with real-time voice-over features for road signs.</p>
+          <div><span class="tag">Computer Vision</span> <span class="tag">CNN</span></div>
+        </article>
 
-  <div style="margin: 40px 0; border-top: 1px solid #ccc;"></div>
+        <article>
+          <h3>CrickData: IPL Dashboard</h3>
+          <p>Built an IPL stats dashboard using historical cricket data from 2008 to 2023.</p>
+          <div><span class="tag">Web App</span> <span class="tag">Visualization</span></div>
+        </article>
 
-  <!-- QUANTUM -->
-  <h2 class="section-title">Quantum Projects</h2>
+        <article>
+          <h3>Ensemble Methods Exploration</h3>
+          <p>Compared AdaBoost and Bagging methods using decision trees and plotted learning curves.</p>
+          <div><span class="tag">Ensemble</span> <span class="tag">AdaBoost</span></div>
+        </article>
 
-  <article>
-    <h3>Quantum Neural Networks</h3>
-    <p><em>Summary:</em> Developed hybrid quantum-classical QNNs for classification and regression using Qiskit’s Aer simulator.</p>
-    <p><em>Technical Focus:</em> Built parametric quantum circuits and optimized cost functions for learning performance.</p>
-    <div>
-      <span class="tag">Qiskit</span> <span class="tag">Quantum ML</span>
-    </div>
-    <p><a href="https://github.com/koushik16/Quantum-Neural-Networks" target="_blank">View on GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Regression with Variational Quantum Circuits</h3>
-    <p><em>Summary:</em> Created a regression pipeline using VQCs to map high-dimensional inputs to continuous outputs.</p>
-    <p><em>Technical Focus:</em> Designed ansatz architectures and trained using classical optimizers over circuit parameters.</p>
-    <div>
-      <span class="tag">Quantum Computing</span> <span class="tag">VQC</span> <span class="tag">Python</span>
-    </div>
-    <p><a href="https://github.com/koushik16/Regression-with-Variational-Quantum-Circuits-Higher-Dimension" target="_blank">View on GitHub →</a></p>
-  </article>
-
-  <div style="margin: 40px 0; border-top: 1px solid #ccc;"></div>
-
-  <!-- OTHER -->
-  <h2 class="section-title">Other Projects</h2>
-
-  <article>
-    <h3>Traffic Sign Classification</h3>
-    <p>Trained CNN models to classify traffic signs and added real-time voice output for accessibility.</p>
-    <div><span class="tag">CNN</span> <span class="tag">Computer Vision</span></div>
-    <p><a href="https://github.com/koushik16/Traffic-Sign-Classification" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Price Prediction Using Neural Networks</h3>
-    <p>Built a basic MLP regressor to predict used car prices with high accuracy.</p>
-    <div><span class="tag">Regression</span> <span class="tag">Python</span></div>
-    <p><a href="https://github.com/koushik16/Price_prediction_using_NN" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Ensemble Methods Exploration</h3>
-    <p>Compared Bagging and Boosting on structured data sets to visualize overfitting and variance control.</p>
-    <div><span class="tag">AdaBoost</span> <span class="tag">Bagging</span></div>
-    <p><a href="https://github.com/koushik16/Ensemble-Methods-Exploration" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Auto Blog Generation</h3>
-    <p>Created a system that generates blog posts from seed topics using NLP generation tools.</p>
-    <div><span class="tag">TextGen</span> <span class="tag">NLP</span></div>
-    <p><a href="https://github.com/koushik16/Auto-Blog" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Breast Cancer Diagnosis</h3>
-    <p>Trained ML models on medical datasets to classify malignant vs benign tumors.</p>
-    <div><span class="tag">Healthcare</span> <span class="tag">Classification</span></div>
-    <p><a href="https://github.com/koushik16/Breast-Cancer-Diagnosis" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Quantum ML on Iris Dataset</h3>
-    <p>Applied quantum circuit learning to classic Iris dataset for binary classification task.</p>
-    <div><span class="tag">Qiskit</span> <span class="tag">Quantum</span></div>
-    <p><a href="https://github.com/koushik16/Quantum-Machine-learning-on-Iris-sample" target="_blank">GitHub →</a></p>
-  </article>
-
-  <article>
-    <h3>Quantum Challenge 2024: Circuit Knitting</h3>
-    <p>Built transpilers and circuit-cutting techniques for depth-optimized quantum circuit execution.</p>
-    <div><span class="tag">Quantum Challenge</span> <span class="tag">Optimization</span></div>
-    <p><a href="https://github.com/koushik16/Transpilers-and-Pass-Managers-Quantum-challenege-2024" target="_blank">GitHub →</a></p>
-  </article>
-
-</section>
-
+        <article>
+          <h3>Decision Trees (Uni & Multi-variate)</h3>
+          <p>Built decision trees from scratch using different splitting metrics and visualized decision boundaries.</p>
+          <div><span class="tag">Decision Trees</span> <span class="tag">From Scratch</span></div>
+        </article>
+      </div>
+    </section>
   </div>
 </body>
 </html>
