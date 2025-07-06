@@ -379,3 +379,50 @@ article {
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+.highlighted-points ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.highlighted-points li {
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  background: #3a86ff;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #265ecf;
+}
+
+.highlighted-nlqk {
+  border: 1px solid #e0e0e0;
+  background-color: #fdfdfd;
+  padding: 16px;
+  margin-bottom: 25px;
+  border-left: 4px solid #3a86ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.nlqk-tag {
+  display: inline-block;
+  background: #e7f0ff;
+  color: #2a65d0;
+  font-size: 0.75em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-top: 6px;
+}
