@@ -1,0 +1,79 @@
+from pathlib import Path
+
+# Save the HTML content as a downloadable file
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koushik Reddy Parukola – AI Software Engineering Portfolio</title>
+  <link rel="stylesheet" href="../stylesheets/styles.css">
+  <style>
+    .project { margin-bottom: 3rem; }
+    h2 { color: #005792; }
+    .tagline { font-style: italic; font-size: 1.1rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Koushik Reddy Parukola</h1>
+  <p class="tagline">AI Software Engineering Portfolio – Reproducible Systems, Research Tools, and ML Infrastructure</p>
+  <p>
+    📍 Jersey City, NJ · 📧 <a href="mailto:parukolakoushik@gmail.com">parukolakoushik@gmail.com</a><br>
+    🔗 <a href="https://github.com/koushik16">GitHub</a> · <a href="https://linkedin.com/in/koushik-reddy-parukola">LinkedIn</a>
+  </p>
+  
+  <hr />
+
+  <div class="project">
+    <h2>NLQK – Natural Language Quantum Kit</h2>
+    <p><strong>Toolkit for encoding and analyzing hybrid quantum-classical semantic embeddings.</strong></p>
+    <p>Designed amplitude encoders, SWAP test modules, and QPCA to simulate NLP models in quantum spaces. Released via PyPI, GitHub, and HPC containers for reproducibility.</p>
+    <p>
+      🔗 <a href="https://github.com/dcavar/nlqk">GitHub</a> · 
+      <a href="https://pypi.org/project/nlqk/">PyPI</a> · 
+      <a href="https://nlqk.ai">Website</a>
+    </p>
+  </div>
+
+  <div class="project">
+    <h2>Real Estate Multimodal Appraisal Engine</h2>
+    <p><strong>Scalable AI platform combining NLP, vision, and voice processing.</strong></p>
+    <p>Built full-stack pipeline with FastAPI, Docker, Kubernetes on GCP. Integrated an AI agent to orchestrate appraisals and reduce manual processing time by 60%.</p>
+    <p>🔗 <a href="https://app.appraise.app">Live Demo</a></p>
+  </div>
+
+  <div class="project">
+    <h2>Mini-CLIP: Visual-Text Alignment</h2>
+    <p><strong>CLIP-style system for generating atomic motion sequences from text prompts.</strong></p>
+    <p>Trained a contrastive learning model + temporal decoder. Initiated development of a benchmark multimodal dataset for fine-grained action understanding.</p>
+    <p>📌 Under Development</p>
+  </div>
+
+  <div class="project">
+    <h2>Graph-RAG for Biomedical NLP</h2>
+    <p><strong>RDF-based retrieval system integrating UMLS triples and LLMs.</strong></p>
+    <p>Extracted 50K+ triples, fine-tuned LLaMA with LoRA for semantic disambiguation. Designed structured RAG pipeline for automated literature QA.</p>
+    <p>🔒 Project details confidential (IU School of Public Health)</p>
+  </div>
+
+  <div class="project">
+    <h2>Reproducible NLP Infrastructure @ Indiana University</h2>
+    <p><strong>Cross-department AI workflow and HPC support for research teams.</strong></p>
+    <p>Built containerized workflows using Docker/Kubernetes, archived via IUData services, and released public GitHub repos. Facilitated validation by researchers across departments.</p>
+    <p>🔗 <a href="https://nlp-lab.org">Lab Website</a></p>
+  </div>
+
+  <hr />
+  <p><em>Want to collaborate or explore how these tools can fit your team’s research or engineering goals? Let’s connect.</em></p>
+</body>
+</html>
+"""
+
+# Save to file
+output_path = Path("/mnt/data/software/index.html")
+output_path.parent.mkdir(parents=True, exist_ok=True)
+output_path.write_text(html_content.strip())
+
+output_path.name  # Return just the filename for download UI
+
