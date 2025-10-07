@@ -11,6 +11,28 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style>
+  .btn-row{
+    display:flex;
+    flex-wrap:wrap;      /* allow wrapping on small screens */
+    gap:8px;             /* space between buttons */
+    margin-top:8px;
+  }
+  .btn{
+    display:inline-flex; /* make each anchor a proper box */
+    align-items:center;
+    justify-content:center;
+    padding:8px 12px;
+    border:1px solid #263146;
+    border-radius:8px;
+    text-decoration:none;
+    color:inherit;       /* keep theme color */
+  }
+  @media (max-width: 480px){
+    .btn{ width:100%; }  /* stack full-width on very small screens */
+  }
+</style>
+
   </head>
   <body>
     <div class="wrapper">
@@ -27,12 +49,13 @@
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/koushik-reddy-parukola">Koushik Reddy Parukola</a></p>
             <!-- <p><strong>Twitter:</strong> <a href="https://twitter.com/koushik16">@koushik16</a></p> -->
             <!-- <p><a href="resume_v1.3.pdf" download>Download CV</a> | <a href="transcript.pdf" download>Download Transcript</a></p> -->
-            <p>
-  <a href="resume_v1.3.pdf" download style="padding:8px 12px;border:1px solid #263146;border-radius:8px;text-decoration:none;">Download CV</a>
-  <a href="transcript.pdf" download style="padding:8px 12px;border:1px solid #263146;border-radius:8px;text-decoration:none;margin-left:8px;">Transcript</a>
-  <a href="mailto:koparu@iu.edu" style="padding:8px 12px;border:1px solid #263146;border-radius:8px;text-decoration:none;margin-left:8px;">Contact</a>
-  <a href="ask/index.html" style="padding:8px 12px;border:1px solid #263146;border-radius:8px;text-decoration:none;margin-left:8px;">Ask-Me Bot</a>
-</p>
+            <div class="btn-row">
+  <a class="btn" href="resume_v1.3.pdf" download>Download CV</a>
+  <a class="btn" href="transcript.pdf" download>Transcript</a>
+  <a class="btn" href="mailto:koparu@iu.edu">Contact</a>
+  <a class="btn" href="ask/index.html">Ask-Me Bot</a>
+</div>
+
     
           </div>
           <!-- <p>This page is part of <a href="index.html">Koushik Reddy Parukola's portfolio</a></p> -->
