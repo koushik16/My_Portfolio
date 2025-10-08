@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cat Bot</title>
+  <style>
+    :root{
+      --bg:#0b0f14; /* deep slate */
+      --panel:#0f1620;
+      --card: #131b26;
+      --text: #e6eef8;
+      --muted:#a0b3c5;
+      --accent:#6ec1ff;
+      --accent-2:#b38cff;
+      --ring: #23384d;
+      --ok:#69e5a3;
+      --warn:#ffd166;
+      --err:#ff6b6b;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(145deg, #0b0f14 0%, #0c1016 60%, #0a0d12 100%);
+      color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      display:flex; align-items:center; justify-content:center;
+    }
+    .app{width:min(1100px, 96vw); height:min(92vh, 920px); display:grid; grid-template-rows: auto 1fr auto; gap:14px; padding:18px; background:rgba(19,27,38,.7); backdrop-filter: blur(10px); border:1px solid #1c2633; border-radius:calc(var(--radius) + 4px); box-shadow:var(--shadow)}
+
+    header{display:flex; align-items:center; gap:12px; padding:8px 12px; background:var(--panel); border:1px solid #1b2633; border-radius:var(--radius)}
+    header .logo{width:36px; height:36px; border-radius:50%; background: radial-gradient(circle at 30% 30%, #ffd6a5 0%, #ffcab3 35%, #fdb5da 70%, #b38cff 100%); box-shadow: inset 0 0 12px rgba(0,0,0,.25)}
+    header h1{font-size:20px; margin:0; letter-spacing:.3px}
+    header .sub{color:var(--muted); font-size:13px}
+    header .spacer{flex:1}
+    header .btn{background:#121a24; border:1px solid #213045; color:var(--text); padding:8px 12px; border-radius:12px; cursor:pointer}
+    header .btn:hover{border-color:#2a3f5a}
+
+    .chat{position:relative; background:var(--panel); border:1px solid #1b2633; border-radius:var(--radius); overflow:hidden}
+    .messages{position:absolute; inset:0; overflow:auto; padding:18px}
+    .msg{display:flex; gap:12px; margin:12px 0; align-items:flex-end}
+    .msg .avatar{width:36px; height:36px; border-radius:50%; flex:0 0 36px}
+    .msg.user .avatar{background:linear-gradient(135deg, #6ec1ff, #b38cff)}
+    .msg.bot .avatar{background: radial-gradient(circle at 40% 35%, #fff5d6, #ffd6a5 55%, #ff9aa2 100%)}
+
+    .bubble{max-width:82%; padding:12px 14px; border-radius:16px; border:1px solid #213045; background:#0f1620; line-height:1.45}
+    .msg.user .bubble{background:#101a26; border-color:#284462}
+    .msg.bot .bubble{background:#0f1823}
+
+    .msg.meta{justify-content:center; color:var(--muted); font-size:12px}
+
+    .controls{display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:end}
+    .inputCard{background:var(--panel); border:1px solid #1b2633; border-radius:var(--radius); padding:10px}
+    .inputRow{display:flex; gap:10px; align-items:center}
+    textarea{width:100%; height:64px; resize:none; background:#0f1620; border:1px solid #213045; border-radius:12px; color:var(--text); padding:10px 12px; outline:none}
+    textarea:focus{border-color:#2a3f5a; box-shadow:0 0 0 3px rgba(110,193,255,.15)}
+
+    .controlBtns{display:flex; gap:8px}
+    .btn{cursor:pointer; border:1px solid #213045; background:#101723; color:var(--text); padding:10px 12px; border-radius:12px; font-size:14px}
+    .btn.primary{background:linear-gradient(135deg, #6ec1ff, #b38cff); color:#0a0f14; border:none; font-weight:600}
+    .btn.icon{display:inline-grid; place-items:center; width:42px; height:42px; padding:0}
+    .btn:disabled{opacity:.5; cursor:not-allowed}
+
+    .toolbar{display:flex; gap:10px; align-items:center; justify-content:flex-end; color:var(--muted); font-size:13px}
+    .toggle{display:inline-flex; align-items:center; gap:8px; background:#0f1620; border:1px solid #213045; border-radius:999px; padding:6px 10px}
+    .toggle input{accent-color:var(--accent)}
+
+    .empty{position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:24px; color:var(--muted)}
+
+    .badge{display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:6px 10px; background:#0f1620; border:1px solid #213045; border-radius:999px}
+
+    @media (max-width: 640px){
+      .bubble{max-width: 100%}
+      header h1{font-size:18px}
+      .toolbar{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Cat Bot <span class="sub">— a purr-sonable chat pal</span></h1>
+        <div class="sub" id="status">Ready</div>
+      </div>
+      <div class="spacer"></div>
+      <button class="btn" id="exportBtn" title="Export chat as JSON">Export</button>
+      <button class="btn" id="clearBtn" title="Clear chat">Clear</button>
+    </header>
+
+    <section class="chat">
+      <div class="messages" id="messages"></div>
+      <div class="empty" id="emptyState">
+        <div>
+          <p class="sub">Start a conversation—Cat Bot answers like a friendly feline.</p>
+          <div style="margin-top:10px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap">
+            <span class="badge">Try: "Tell me a cat fact"</span>
+            <span class="badge">Try: "Translate hello to meow"</span>
+            <span class="badge">Try: "Write a haiku about yarn"</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="inputCard">
+        <div class="inputRow">
+          <textarea id="input" placeholder="Type a message. Shift+Enter for newline."></textarea>
+          <div class="controlBtns">
+            <button class="btn icon" id="micBtn" title="Hold to speak (experimental)">🎤</button>
+            <button class="btn primary" id="sendBtn">Send</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <label class="toggle"><input type="checkbox" id="purrs" checked /> Purrs</label>
+          <label class="toggle"><input type="checkbox" id="facts" /> Cat facts</label>
+          <label class="toggle"><input type="checkbox" id="tts" /> Read aloud</label>
+          <label class="toggle"><input type="range" id="cattiness" min="0" max="3" value="2" /> Cattiness</label>
+        </div>
+      </div>
+      <div>
+        <button class="btn" id="copyLast">Copy last reply</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // --- State ---
+    const messagesEl = document.getElementById('messages');
+    const emptyEl = document.getElementById('emptyState');
+    const inputEl = document.getElementById('input');
+    const sendBtn = document.getElementById('sendBtn');
+    const micBtn = document.getElementById('micBtn');
+    const exportBtn = document.getElementById('exportBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyLastBtn = document.getElementById('copyLast');
+    const statusEl = document.getElementById('status');
+
+    const purrsEl = document.getElementById('purrs');
+    const factsEl = document.getElementById('facts');
+    const ttsEl = document.getElementById('tts');
+    const cattinessEl = document.getElementById('cattiness');
+
+    const STORAGE_KEY = 'catbot_chat_v1';
+
+    const catFacts = [
+      'Cats sleep for around 12–16 hours a day.',
+      'A group of cats is called a clowder.',
+      'Cats have 230 bones—more than humans.',
+      'Each cat’s nose print is unique, like a fingerprint.',
+      'Kittens have 26 baby teeth; adult cats have 30.'
+    ];
+
+    const state = {
+      history: loadHistory(),
+    };
+
+    function loadHistory(){
+      try{ const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : [] }catch{ return [] }
+    }
+    function saveHistory(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state.history)); }
+
+    // --- UI ---
+    function render(){
+      messagesEl.innerHTML = '';
+      if(state.history.length === 0){ emptyEl.style.display = 'grid' } else { emptyEl.style.display = 'none' }
+      state.history.forEach(m => messagesEl.appendChild(messageNode(m)));
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function messageNode({role, content}){
+      const wrap = document.createElement('div');
+      wrap.className = `msg ${role}`;
+      const avatar = document.createElement('div');
+      avatar.className = 'avatar';
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.innerHTML = linkify(escapeHtml(content));
+      wrap.appendChild(avatar); wrap.appendChild(bubble);
+      return wrap;
+    }
+
+    function metaNode(text){
+      const el = document.createElement('div');
+      el.className = 'msg meta';
+      el.textContent = text; return el;
+    }
+
+    function escapeHtml(str){
+      return str.replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[s]));
+    }
+    function linkify(text){
+      const urlRe = /(https?:\/\/[^\s]+)/g; return text.replace(urlRe, '<a href="$1" target="_blank" rel="noopener">$1<\/a>');
+    }
+
+    // --- Cat engine (rule-based placeholder) ---
+    function catReply(userText){
+      const level = Number(cattinessEl.value || 0); // 0..3
+      const wantsPurrs = purrsEl.checked;
+      const wantsFacts = factsEl.checked;
+
+      const t = userText.trim().toLowerCase();
+      let reply = '';
+
+      // Intent sketches
+      if(/hello|hi|hey|yo\b/.test(t)){
+        reply = pick([
+          'Meow! Hello hooman. How can I assist (besides knocking things off shelves)?',
+          'Hii~ meow there! What shall we scheme today?'
+        ]);
+      } else if(/fact|facts|tell me.*cat/.test(t)){
+        reply = 'Here\'s a cat fact: ' + pick(catFacts);
+      } else if(/haiku|poem/.test(t)){
+        reply = 'whiskers greet the dawn\nwindowsill throne warm with sun\npurrs reset the world';
+      } else if(/translate.*hello|meow.*mean/.test(t)){
+        reply = 'In Feline: "mrrp? meow meow~" (loosely, "hello, got snacks?")';
+      } else if(/time|date/.test(t)){
+        reply = 'It\'s ' + new Date().toLocaleString() + '. Prime napping hours.';
+      } else if(/clear chat|wipe/.test(t)){
+        clearChat();
+        return 'Chat cleared. Fresh scratching post.';
+      } else if(/help|what can you do|\bcommands?\b/.test(t)){
+        reply = 'Try: "cat fact", "haiku", "translate hello", "time", or ask anything—you\'ll get a catty spin.';
+      } else {
+        // General answer with cat-flair
+        reply = smartCatify(userText, {level, purrs:wantsPurrs});
+      }
+
+      if(wantsFacts && Math.random() < 0.35){
+        reply += `\n\nBonus fact: ${pick(catFacts)}`;
+      }
+      return reply;
+    }
+
+    function smartCatify(text, {level, purrs}){
+      // Very lightweight style transform
+      let r = text
+        .replace(/\bI\b/g, 'this cat')
+        .replace(/\byou\b/gi, 'hooman')
+        .replace(/\!+/g, '!')
+        .trim();
+      // Add playful endings
+      const tails = [
+        ' Meow.',
+        ' *tail swish*',
+        ' (stares from bookshelf).',
+        '—er, I mean, purrhaps.'
+      ];
+      if(level >= 1) r += pick(tails);
+      if(level >= 2) r = 'Mmm ' + r.toLowerCase();
+      if(level >= 3) r = r + (purrs? ' purr purr~' : ' meow~');
+      return r;
+    }
+
+    function pick(arr){ return arr[Math.floor(Math.random()*arr.length)] }
+
+    // --- Actions ---
+    function send(){
+      const text = inputEl.value;
+      if(!text.trim()) return;
+      pushMsg('user', text);
+      inputEl.value = '';
+      statusEl.textContent = 'Thinking…';
+
+      // Placeholder: simulate streaming
+      setTimeout(() => {
+        const reply = catReply(text);
+        pushMsg('bot', reply);
+        if(ttsEl.checked){ speak(reply) }
+        statusEl.textContent = 'Ready';
+      }, 220);
+    }
+
+    function pushMsg(role, content){
+      state.history.push({role, content, ts: Date.now()});
+      saveHistory();
+      messagesEl.appendChild(messageNode({role, content}));
+      emptyEl.style.display = 'none';
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function clearChat(){
+      state.history = []; saveHistory(); render();
+    }
+
+    // --- Export ---
+    function exportChat(){
+      const data = JSON.stringify(state.history, null, 2);
+      const blob = new Blob([data], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `cat-bot-${new Date().toISOString().slice(0,19)}.json`;
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    // --- Clipboard ---
+    async function copyLast(){
+      const last = [...state.history].reverse().find(m=>m.role==='bot');
+      if(!last) return;
+      try{ await navigator.clipboard.writeText(last.content); toast('Copied last reply') }catch{ toast('Copy failed') }
+    }
+
+    function toast(text){
+      const el = document.createElement('div');
+      el.textContent = text; el.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#0f1620;border:1px solid #213045;padding:10px 14px;border-radius:12px;z-index:50;color:var(--text)';
+      document.body.appendChild(el); setTimeout(()=>el.remove(), 1500);
+    }
+
+    // --- Voice (beta) ---
+    let rec; let recActive = false; let recTimer;
+    function setupRec(){
+      const R = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if(!R){ toast('Speech recognition not supported in this browser.'); return null }
+      const r = new R();
+      r.lang = 'en-US'; r.interimResults = false; r.continuous = false;
+      r.onresult = (e)=>{
+        const t = e.results[0][0].transcript; inputEl.value = (inputEl.value + ' ' + t).trim();
+      };
+      r.onerror = ()=>{ recActive=false; micBtn.classList.remove('active'); };
+      r.onend = ()=>{ recActive=false; micBtn.classList.remove('active'); };
+      return r;
+    }
+
+    function startRec(){
+      if(!rec) rec = setupRec(); if(!rec) return;
+      try{ rec.start(); recActive = true; micBtn.classList.add('active'); statusEl.textContent='Listening…' }catch{}
+    }
+    function stopRec(){ if(rec && recActive){ rec.stop(); statusEl.textContent='Ready' } }
+
+    function speak(text){
+      try{
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 1; u.pitch = 1.05; u.onend = ()=>{}; speechSynthesis.speak(u);
+      }catch{}
+    }
+
+    // --- Events ---
+    inputEl.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); }
+    });
+    sendBtn.addEventListener('click', send);
+    exportBtn.addEventListener('click', exportChat);
+    clearBtn.addEventListener('click', clearChat);
+    copyLastBtn.addEventListener('click', copyLast);
+
+    // Hold-to-talk UX
+    micBtn.addEventListener('pointerdown', ()=>{ startRec(); clearTimeout(recTimer); });
+    micBtn.addEventListener('pointerup', ()=>{ recTimer = setTimeout(stopRec, 50) });
+    micBtn.addEventListener('pointerleave', ()=>{ recTimer = setTimeout(stopRec, 0) });
+
+    // Initial render
+    render();
+
+    // --- Integration note ---
+    // To swap in a real model later (OpenAI, Llama.cpp, your FastAPI):
+    // 1) Replace the setTimeout block in send() with a fetch() to your endpoint.
+    // 2) Stream tokens to messagesEl for a live-typing effect.
+    // 3) Keep the catReply() as a fallback when the endpoint is unreachable.
+  </script>
+</body>
+</html>
