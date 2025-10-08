@@ -3,51 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Koushik Reddy Parukola</title>
+  <title>Site Under Update | Koushik Reddy Parukola</title>
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: #0b0f17;
-      color: #e7ecf3;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      background: linear-gradient(135deg, #0b0f17, #121826);
+      color: #e7ecf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       text-align: center;
     }
-    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    p { opacity: 0.8; margin-bottom: 2rem; }
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-    a {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 12px;
-      border: 1px solid #263146;
-      text-decoration: none;
-      color: #e7ecf3;
-      background: #121826;
-      font-weight: 600;
-      transition: background 0.2s ease;
+    p {
+      opacity: 0.8;
+      max-width: 400px;
     }
-    a:hover { background: #1e2b44; }
+    .loader {
+      margin-top: 20px;
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(231,236,243,0.2);
+      border-top-color: #e7ecf3;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <h1>👋 Hi, I’m Koushik Reddy Parukola</h1>
-  <p>Machine Learning Engineer • Research Associate • AI Systems & Quantum NLP</p>
-
-  <div class="btns">
-    <a href="ask-me.html">Ask Me Anything</a>
-    <a href="main.html">Go to Portfolio</a>
-  </div>
-
-  <p style="position:fixed;bottom:20px;font-size:12px;opacity:0.6;">© 2025 Koushik Reddy Parukola</p>
+  <h1>🚀 Deploying New Features</h1>
+  <p>Please check back after 24 hours — Koushik is rolling out updates to the site and Ask-Me assistant.</p>
+  <div class="loader"></div>
+  <p style="margin-top: 30px; font-size: 12px; opacity: 0.6;">© 2025 Koushik Reddy Parukola</p>
 </body>
 </html>
